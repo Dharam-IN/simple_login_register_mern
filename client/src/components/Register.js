@@ -42,7 +42,20 @@ const Register = ()=>{
         }else if(password == ""){
             alert("Please Enter Password")
         }else{
-            
+           const data = await fetch("http://localhost:5000/register",{
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fname, email, username, password
+            })
+           });
+
+           const res = await data.json();
+           console.log("indi")
+           console.log(res)
+           console.log("india")
         }
 
     }
