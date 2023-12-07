@@ -30,7 +30,7 @@ const Login = ()=>{
         }else if(password == ""){
             alert("Please Enter Password")
         }else{
-            alert("Done")
+            alert("Complate")
         }
     }
 
