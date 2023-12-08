@@ -6,14 +6,16 @@ const Login = ()=>{
 
     const [pass, setPass] = useState(false);
     const [inpval, setinpval] = useState({
+        fname: "",
         email: "",
-        password:""
+        username: "",
+        password: ""
     })
-    
-    const setval = async(e)=>{
+
+    const setval = async (e)=>{
         console.log(e.target)
         const {name, value} = e.target;
-
+        
         setinpval(()=>{
             return{
                 ...inpval,
@@ -25,12 +27,24 @@ const Login = ()=>{
     const loginUser = async(e)=>{
         e.preventDefault();
         const {email, password} = inpval;
+
         if(email == ""){
-            alert("Please Enter Email");
+            alert("Please Enter Email")
         }else if(password == ""){
             alert("Please Enter Password")
         }else{
-            alert("Complate")
+            const data = await fetch("http://localhost:5000/login",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email, password
+                })
+            })
+
+            const res = await data.json();
+            console.log(res)
         }
     }
 

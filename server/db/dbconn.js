@@ -1,14 +1,13 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+const mongoose = require('mongoose');
+const dotenv = require('dotenv')
 
 dotenv.config({path: '../.env'})
-const DB = process.env.DB
+
+const DB = process.env.DB;
 
 mongoose.connect(DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true
-}).then(()=>console.log("Database Connected")).catch((error)=>{
-    console.log(error)
+}).then(()=>console.log("Database Connected")).catch((errr)=>{
+    console.log(errr)
 })
-
-
